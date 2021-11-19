@@ -1,0 +1,15 @@
+
+
+
+.song {
+    display: flex ;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon {
+    padding: 20px;
+    background-color: #0070f3;
+    border-radius: 50%;
+}
