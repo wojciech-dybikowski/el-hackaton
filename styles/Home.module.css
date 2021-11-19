@@ -1,9 +1,11 @@
+
 .container {
   padding: 0 2rem;
 }
 
 .main {
   min-height: 100vh;
+
   padding: 4rem 0;
  }
 
@@ -111,3 +113,8 @@
   }
 }
 
+
+.historical {
+  /*height: 50vh;*/
+  @apply border-2
+}

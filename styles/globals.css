@@ -5,9 +5,9 @@
 html,
 body {
   padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: 0 auto;
+  max-width: 1200px;
+  font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 a {
@@ -17,4 +17,14 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+
+.fa-play:before  {
+  position: relative;
+  left: -2px
 }
