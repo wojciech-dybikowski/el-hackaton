@@ -29,8 +29,8 @@
 }
 
 .title a {
-  color: #0070f3;
   text-decoration: none;
+  @apply text-red-700
 }
 
 .title a:hover,
@@ -43,6 +43,7 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+
 }
 
 .title,
