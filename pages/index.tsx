@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import { Row } from 'shared/ui';
 
 const Home: NextPage = () => {
   return (
@@ -39,6 +40,11 @@ const Home: NextPage = () => {
             <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
           </a>
         </div>
+        <Row>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Row>
       </main>
 
       <footer className={styles.footer}>
