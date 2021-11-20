@@ -63,9 +63,9 @@ function Calendar({
       <button
         key={selectedMonth + '-' + index}
         className={classnames('col-span-1  py-1', {
-          'bg-primary-blue text-white': selectedDay === index,
+          'bg-primary-blue text-white': selectedDay - 1 === index,
         })}
-        onClick={() => setSelectedDay(index)}
+        onClick={() => setSelectedDay(index + 1)}
       >
         <p style={{ fontSize: '28px' }}>{dayValue}</p>
       </button>
