@@ -1,6 +1,12 @@
 import { Column, Grid, GridCol, Row } from 'shared/ui';
 import React, { useState } from 'react';
-import { Article, ArticleVertical, PodcastVertical, TagLabel } from 'shared/components';
+import {
+  Article,
+  ArticleVertical,
+  MusicVertical,
+  PodcastVertical,
+  TagLabel,
+} from 'shared/components';
 
 // @ts-ignore
 import classnames from 'classnames';
@@ -31,9 +37,15 @@ function NavbarTag({
   );
 }
 
-function Calendar({ selectedMonth }: { selectedMonth: number }) {
-  const [selectedDay, setSelectedDay] = useState(19);
-
+function Calendar({
+  selectedMonth,
+  selectedDay,
+  setSelectedDay,
+}: {
+  selectedMonth: number;
+  selectedDay: number;
+  setSelectedDay: (selectedDay: number) => void;
+}) {
   const days = Array.from({ length: 35 }).map((_, index) => {
     const day = index + 1;
     const monthDaysFn = () => {
@@ -163,6 +175,7 @@ function Video() {
 const KalendariumPage = () => {
   const [month, setSelectedMonth] = useState(11);
   const [activeLabel, setActiveLabel] = useState('wszystko');
+  const [selectedDay, setSelectedDay] = useState(19);
 
   const setMonth = (newValue: number) => {
     console.log('ASDASD: ', newValue);
@@ -175,6 +188,10 @@ const KalendariumPage = () => {
     }
 
     return setSelectedMonth(newValue);
+  };
+
+  const onSetSelectedDayPress = (selectedDay: number) => {
+    setSelectedDay(selectedDay);
   };
 
   return (
@@ -197,7 +214,7 @@ const KalendariumPage = () => {
               className=" uppercase text-primary-blue"
               style={{ fontSize: '48px', fontWeight: 900, fontFamily: 'Montserrat' }}
             >
-              19 Listopada
+              {selectedDay} Listopada
             </h3>
             <Row className=" justify-between">
               <div className="flex space-x-4">
@@ -231,13 +248,27 @@ const KalendariumPage = () => {
             </Row>
             <SectionTitle title={'Muzyka'} />
             <div className="grid gap-2 grid grid-cols-2">
-              <ArticleVertical />
-              <ArticleVertical />
+              <MusicVertical
+                albumImgPath={'url("/foto7.png")'}
+                track={'Jarmark'}
+                rating={3.8}
+                album={'Taco Hemingway, 2020'}
+              />
+              <MusicVertical
+                albumImgPath={'url("/foto6.png")'}
+                track={'Art brut'}
+                rating={3.8}
+                album={'problem, 2014'}
+              />
             </div>
             <SectionTitle title={'Artykuły'} />
             <Article />
             <Article />
-            <Article />
+            <SectionTitle title={'Artykuły'} />
+            <div className="grid gap-2 grid grid-cols-2">
+              <ArticleVertical />
+              <ArticleVertical />
+            </div>
             <SectionTitle title={'Podcasty'} />
             <div className="grid gap-2 grid grid-cols-2">
               <PodcastVertical />
@@ -270,7 +301,11 @@ const KalendariumPage = () => {
                 ></i>
               </Row>
               <div style={{ marginRight: '-5%', marginLeft: '-5%' }} className="">
-                <Calendar selectedMonth={month} />
+                <Calendar
+                  selectedDay={selectedDay}
+                  setSelectedDay={onSetSelectedDayPress}
+                  selectedMonth={month}
+                />
               </div>
             </div>
             <div className="text-white bg-primary-blue border-2 border-black p-4 group">
