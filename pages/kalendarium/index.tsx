@@ -8,7 +8,7 @@ import classnames from 'classnames';
 function NavbarTag({ label }: { label: string }) {
   return (
     <div className="border-4 border-black">
-      <p style={{ fontWeight: 900 }} className="uppercase  py-1 px-6">
+      <p style={{ fontWeight: 900 }} className="uppercase  py-1 px-2">
         {label}
       </p>
     </div>
@@ -124,6 +124,26 @@ const months = [
   },
 ];
 
+function Video() {
+  return (
+    <div className="col-span-1">
+      <img style={{ width: 'auto' }} src="/foto3.png" alt="foto3" />
+      <p
+        style={{
+          fontFamily: 'Montserrat',
+          fontWeight: 900,
+          fontSize: '26px',
+          lineHeight: '36px',
+          textAlign: 'center',
+        }}
+      >
+        Oliwha Brazil, Adi Nowak, a Silk Sonic zachwycają | UCHO
+      </p>
+      <img style={{ width: 'auto' }} src="/foto5.png" alt="foto5" />
+    </div>
+  );
+}
+
 const KalendariumPage = () => {
   const [month, setSelectedMonth] = useState(11);
 
@@ -144,12 +164,17 @@ const KalendariumPage = () => {
     <main className="w-full h-screen">
       <div style={{ marginLeft: '5%', marginRight: '5%' }}>
         <Grid className="h-full mt-20" gridGap={8}>
-          <GridCol className="space-y-8" colSpan={7}>
+          <GridCol className="space-y-4 mb-20" colSpan={7}>
             <h3
               className=" uppercase "
-              style={{ color: 'darkgrey', fontSize: '40px', fontWeight: 900 }}
+              style={{
+                color: 'black',
+                fontSize: '24px',
+                fontFamily: 'Montserrat',
+                fontWeight: 900,
+              }}
             >
-              Kalendarium
+              newonce upon a time:
             </h3>
             <h3
               className=" uppercase text-primary-blue"
@@ -181,6 +206,10 @@ const KalendariumPage = () => {
               <PodcastVertical />
             </div>
             <SectionTitle title={'Video'} />
+            <div className="grid gap-2 grid grid-cols-2">
+              <Video />
+              <Video />
+            </div>
           </GridCol>
           <GridCol colSpan={5}>
             <div className="border-2 border-black mt-10 px-10">
