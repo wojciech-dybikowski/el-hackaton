@@ -5,13 +5,29 @@ import { Article, ArticleVertical, PodcastVertical, TagLabel } from 'shared/comp
 // @ts-ignore
 import classnames from 'classnames';
 
-function NavbarTag({ label }: { label: string }) {
+function NavbarTag({
+  label,
+  activeLabel,
+  onNavbarTagClick,
+}: {
+  label: string;
+  activeLabel?: string;
+  onNavbarTagClick?: () => void;
+}) {
   return (
-    <div className="border-4 border-black">
-      <p style={{ fontWeight: 900 }} className="uppercase  py-1 px-2">
+    <button onClick={onNavbarTagClick} className="border-4 border-black">
+      <p
+        style={{
+          fontWeight: 900,
+          fontSize: '12px',
+          backgroundColor: label === activeLabel ? '#1300e8' : undefined,
+          color: label === activeLabel ? '#fff' : undefined,
+        }}
+        className="uppercase  py-1 px-2"
+      >
         {label}
       </p>
-    </div>
+    </button>
   );
 }
 
@@ -146,6 +162,7 @@ function Video() {
 
 const KalendariumPage = () => {
   const [month, setSelectedMonth] = useState(11);
+  const [activeLabel, setActiveLabel] = useState('wszystko');
 
   const setMonth = (newValue: number) => {
     console.log('ASDASD: ', newValue);
@@ -184,10 +201,31 @@ const KalendariumPage = () => {
             </h3>
             <Row className=" justify-between">
               <div className="flex space-x-4">
-                <NavbarTag label={'polski rap'} />
-                <NavbarTag label={'kino'} />
-                <NavbarTag label={'pop'} />
-                <NavbarTag label={'podcast'} />
+                <NavbarTag
+                  onNavbarTagClick={() => setActiveLabel('wszystko')}
+                  activeLabel={activeLabel}
+                  label={'wszystko'}
+                />
+                <NavbarTag
+                  onNavbarTagClick={() => setActiveLabel('polski rap')}
+                  activeLabel={activeLabel}
+                  label={'polski rap'}
+                />
+                <NavbarTag
+                  onNavbarTagClick={() => setActiveLabel('kino')}
+                  activeLabel={activeLabel}
+                  label={'kino'}
+                />
+                <NavbarTag
+                  onNavbarTagClick={() => setActiveLabel('pop')}
+                  activeLabel={activeLabel}
+                  label={'pop'}
+                />
+                <NavbarTag
+                  onNavbarTagClick={() => setActiveLabel('podcast')}
+                  activeLabel={activeLabel}
+                  label={'podcast'}
+                />
               </div>
               <NavbarTag label={'sortuj'} />
             </Row>

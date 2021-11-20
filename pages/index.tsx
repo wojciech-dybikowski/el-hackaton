@@ -28,10 +28,9 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <main className={styles.main}>
         <div style={{ marginLeft: '5%', marginRight: '5%' }}>
-          <Song />
           <Grid gridGap={8}>
             <GridCol colSpan={7}>
-              <div className="bg-red-700 w-full h-full"></div>
+              <div className="bg-red-100 w-full h-full"></div>
             </GridCol>
             <GridCol colSpan={5}>
               <div className={styles.historical}>
@@ -40,9 +39,14 @@ const Home: NextPage = () => {
                     style={{ fontSize: '32px', fontFamily: 'helvetica', fontWeight: 900 }}
                     className=" font-extrabold "
                   >
-                    19 Listopada
+                    {selectedDay} Listopada
                   </p>
-                  <i style={{ fontSize: '30px' }} className="fas fa-long-arrow-alt-right"></i>
+                  <Link href={'/kalendarium'}>
+                    <i
+                      style={{ fontSize: '30px' }}
+                      className="cursor-pointer fas fa-long-arrow-alt-right"
+                    />
+                  </Link>
                 </div>
                 <Row className="horizontal-scroll  w-full overflow-auto justify-between items-center px-4 mb-4">
                   {days}
