@@ -16,9 +16,9 @@ const Home: NextPage = () => {
     <button
       key={'selected-day-' + index}
       className={classnames('px-2 py-1', {
-        'bg-primary-blue text-white': selectedDay === index,
+        'bg-primary-blue text-white': selectedDay - 1 === index,
       })}
-      onClick={() => setSelectedDay(index)}
+      onClick={() => setSelectedDay(index + 1)}
     >
       <p>{index + 1}</p>
     </button>
