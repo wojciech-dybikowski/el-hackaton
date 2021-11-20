@@ -33,6 +33,7 @@ function Calendar({ selectedMonth }: { selectedMonth: number }) {
 
     return (
       <button
+        key={selectedMonth + '-' + index}
         className={classnames('col-span-1  py-1', {
           'bg-primary-blue text-white': selectedDay === index,
         })}

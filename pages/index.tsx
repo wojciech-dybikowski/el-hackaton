@@ -14,6 +14,7 @@ const Home: NextPage = () => {
 
   const days = Array.from({ length: 31 }).map((_, index) => (
     <button
+      key={'selected-day-' + index}
       className={classnames('px-2 py-1', {
         'bg-primary-blue text-white': selectedDay === index,
       })}
