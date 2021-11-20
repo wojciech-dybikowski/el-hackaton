@@ -6,7 +6,10 @@ html,
 body {
   padding: 0;
   margin: 0 auto;
+  /*margin-left: auto;*/
+  /*margin-Right: auto;*/
   max-width: 1200px;
+/*{ marginLeft: '5%', marginRight: '5%' }*/
   font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
@@ -28,3 +31,4 @@ a {
   position: relative;
   left: -2px
 }
+

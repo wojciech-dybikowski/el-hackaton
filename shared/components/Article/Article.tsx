@@ -7,7 +7,7 @@ import classnames from 'classnames';
 export function Article() {
   return (
     <div className="border-2 border-black flex relative">
-      <div style={{ width: '45%' }} className=" bg-red-700 border-r-2 border-black">
+      <div style={{ width: '45%' }} className="border-r-2 border-black">
         <img style={{ width: '100%', height: '100%' }} src={'/foto2.png'} />
       </div>
       <div style={{ width: '55%' }} className=" p-4">
@@ -31,18 +31,22 @@ export function Article() {
 
 export function ArticleVertical() {
   return (
-    <div className="col-span-1 border-2 border-black  relative">
-      <div
-        style={{ maxHeight: '420px' }}
-        className="overflow-hidden bg-red-700 border-r-2 border-black relative"
-      >
-        <img style={{ width: '100%', height: '100%' }} src={'/foto2.png'} />
-        <div style={{ width: '200px', top: '-8%' }} className="inline-block relative left-10">
-          <TagLabel
-            textStyle={{ lineHeight: 'initial' }}
-            wrapperStyle={{ position: 'absolute' }}
-            label={'polski rap'}
-          />
+    <div className="col-span-1 border-2 border-black ">
+      <div style={{ maxHeight: '420px' }} className=" border-r-2 border-black relative">
+        <div className="">
+          <div className="overflow-hidden">
+            <img style={{ width: '100%', height: '100%' }} src={'/foto2.png'} />
+          </div>
+          <div
+            style={{ width: '200px', bottom: '-10%', left: '5%', height: '40px' }}
+            className="inline-block absolute"
+          >
+            <TagLabel
+              textStyle={{ lineHeight: 'initial' }}
+              wrapperStyle={{ position: 'absolute' }}
+              label={'polski rap'}
+            />
+          </div>
         </div>
       </div>
       <div style={{ height: '' }} className="p-4">
@@ -64,22 +68,19 @@ export function ArticleVertical() {
 export function PodcastVertical() {
   return (
     <div className="col-span-1 border-2 border-black  relative">
-      <Row
-        style={{ maxHeight: '420px' }}
-        className="overflow-hidden bg-red-700 border-r-2 border-black relative"
-      >
+      <Row style={{ maxHeight: '420px' }} className="overflow-hidden relative">
         <img style={{ width: '50%', height: '100%' }} src={'/foto2.png'} />
         <div className="w-full flex flex-col">
-          <div style={{ flex: 2 }} className="text-center w-full">
-            Czas?
+          <div style={{ flex: 2 }} className="text-center w-full flex items-center justify-center">
+            <p>11:08</p>
           </div>
           <Row style={{ flex: 3 }}>
-            <div className="flex-1 text-center bg-green-700 flex items-center justify-center">
+            <div className="flex-1 text-center flex items-center justify-center border-l-2 border-t-2 border-b-2 border-black">
               <div className="">
                 <i style={{ fontSize: '20px' }} className={classnames('mt-1 fas fa-play ')} />
               </div>
             </div>
-            <div className="flex-1 text-center bg-blue-700 flex items-center justify-center">
+            <div className="flex-1 text-center  flex items-center justify-center border-2 border-black">
               <div className="">
                 <i style={{ fontSize: '20px' }} className={classnames('mt-1 fas fa-bookmark ')} />
               </div>
@@ -92,7 +93,7 @@ export function PodcastVertical() {
           <span className="text-primary-blue">Redakcja newonce</span> 19.11.2020
         </p>
         <p style={{ fontSize: '24px', fontWeight: 900, lineHeight: '28px' }}>
-          Jan-rapowanie zapowiada nowy materiał. Pierwsze single już za moment
+          Co Będzie Dziś? Przemek Lahula
         </p>
       </div>
 

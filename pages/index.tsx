@@ -27,56 +27,58 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <Song />
-        <Grid gridGap={8}>
-          <GridCol colSpan={7}>
-            <div className="bg-red-700 w-full h-full"></div>
-          </GridCol>
-          <GridCol colSpan={5}>
-            <div className={styles.historical}>
-              <div className="flex items-center justify-between p-2">
-                <p
-                  style={{ fontSize: '32px', fontFamily: 'helvetica', fontWeight: 900 }}
-                  className=" font-extrabold "
+        <div style={{ marginLeft: '5%', marginRight: '5%' }}>
+          <Song />
+          <Grid gridGap={8}>
+            <GridCol colSpan={7}>
+              <div className="bg-red-700 w-full h-full"></div>
+            </GridCol>
+            <GridCol colSpan={5}>
+              <div className={styles.historical}>
+                <div className="flex items-center justify-between p-2">
+                  <p
+                    style={{ fontSize: '32px', fontFamily: 'helvetica', fontWeight: 900 }}
+                    className=" font-extrabold "
+                  >
+                    19 Listopada
+                  </p>
+                  <i style={{ fontSize: '30px' }} className="fas fa-long-arrow-alt-right"></i>
+                </div>
+                <Row className="horizontal-scroll  w-full overflow-auto justify-between items-center px-4 mb-4">
+                  {days}
+                </Row>
+                <div className="bg-primary-blue text-white">
+                  <p style={{ fontSize: '20px' }} className="p-4">
+                    Co wydarzyło się tego dnia:
+                  </p>
+                </div>
+                <div style={{ height: '400px' }} className="overflow-auto pb-10">
+                  <ArticleListItem />
+                  <ArticleListItem type={'podcast'} />
+                  <ArticleListItem />
+                  <ArticleListItem />
+                  <ArticleListItem />
+                </div>
+              </div>
+              <Link href={'/kalendarium'}>
+                <button
+                  style={{
+                    fontSize: '14px',
+                    boxShadow: '2px 2px 0 #000',
+                  }}
+                  className="w-full mt-6 border-4 border-black"
                 >
-                  19 Listopada
-                </p>
-                <i style={{ fontSize: '30px' }} className="fas fa-long-arrow-alt-right"></i>
-              </div>
-              <Row className="horizontal-scroll  w-full overflow-auto justify-between items-center px-4 mb-4">
-                {days}
-              </Row>
-              <div className="bg-primary-blue text-white">
-                <p style={{ fontSize: '20px' }} className="p-4">
-                  Co wydarzyło się tego dnia:
-                </p>
-              </div>
-              <div style={{ height: '400px' }} className="overflow-auto pb-10">
-                <ArticleListItem />
-                <ArticleListItem type={'podcast'} />
-                <ArticleListItem />
-                <ArticleListItem />
-                <ArticleListItem />
-              </div>
-            </div>
-            <Link href={'/kalendarium'}>
-              <button
-                style={{
-                  fontSize: '14px',
-                  boxShadow: '2px 2px 0 #000',
-                }}
-                className="w-full mt-6 border-4 border-black"
-              >
-                <p
-                  style={{ fontFamily: 'Montserrat', fontWeight: 900 }}
-                  className="text-primary-blue py-1 uppercase "
-                >
-                  Zobacz kalendarium
-                </p>
-              </button>
-            </Link>
-          </GridCol>
-        </Grid>
+                  <p
+                    style={{ fontFamily: 'Montserrat', fontWeight: 900 }}
+                    className="text-primary-blue py-1 uppercase "
+                  >
+                    Zobacz kalendarium
+                  </p>
+                </button>
+              </Link>
+            </GridCol>
+          </Grid>
+        </div>
       </main>
 
       <footer className={styles.footer}>

@@ -142,115 +142,117 @@ const KalendariumPage = () => {
 
   return (
     <main className="w-full h-screen">
-      <Grid className="h-full mt-20" gridGap={8}>
-        <GridCol className="space-y-8" colSpan={7}>
-          <h3
-            className=" uppercase "
-            style={{ color: 'darkgrey', fontSize: '40px', fontWeight: 900 }}
-          >
-            Kalendarium
-          </h3>
-          <h3
-            className=" uppercase text-primary-blue"
-            style={{ fontSize: '48px', fontWeight: 900, fontFamily: 'Montserrat' }}
-          >
-            19 Listopada
-          </h3>
-          <Row className=" justify-between">
-            <div className="flex space-x-4">
-              <NavbarTag label={'polski rap'} />
-              <NavbarTag label={'kino'} />
-              <NavbarTag label={'pop'} />
-              <NavbarTag label={'podcast'} />
-            </div>
-            <NavbarTag label={'sortuj'} />
-          </Row>
-          <SectionTitle title={'Muzyka'} />
-          <div className="grid gap-2 grid grid-cols-2">
-            <ArticleVertical />
-            <ArticleVertical />
-          </div>
-          <SectionTitle title={'Artykuły'} />
-          <Article />
-          <Article />
-          <Article />
-          <SectionTitle title={'Podcasty'} />
-          <div className="grid gap-2 grid grid-cols-2">
-            <PodcastVertical />
-            <PodcastVertical />
-          </div>
-          <SectionTitle title={'Video'} />
-        </GridCol>
-        <GridCol colSpan={5}>
-          <div className="border-2 border-black mt-10 px-10">
-            <Row className="items-center space-between w-full mt-4">
-              <i
-                onClick={() => setMonth(month - 1)}
-                style={{ fontSize: '32px' }}
-                className="cursor-pointer fas fa-long-arrow-alt-left"
-              ></i>
-              <p
-                style={{ fontSize: '32px', fontFamily: 'Montserrat', fontWeight: 900 }}
-                className="w-full text-center"
-              >
-                {months[month - 1].name}
-              </p>
-              <i
-                onClick={() => setMonth(month + 1)}
-                style={{ fontSize: '32px' }}
-                className="cursor-pointer fas fa-long-arrow-alt-right"
-              ></i>
+      <div style={{ marginLeft: '5%', marginRight: '5%' }}>
+        <Grid className="h-full mt-20" gridGap={8}>
+          <GridCol className="space-y-8" colSpan={7}>
+            <h3
+              className=" uppercase "
+              style={{ color: 'darkgrey', fontSize: '40px', fontWeight: 900 }}
+            >
+              Kalendarium
+            </h3>
+            <h3
+              className=" uppercase text-primary-blue"
+              style={{ fontSize: '48px', fontWeight: 900, fontFamily: 'Montserrat' }}
+            >
+              19 Listopada
+            </h3>
+            <Row className=" justify-between">
+              <div className="flex space-x-4">
+                <NavbarTag label={'polski rap'} />
+                <NavbarTag label={'kino'} />
+                <NavbarTag label={'pop'} />
+                <NavbarTag label={'podcast'} />
+              </div>
+              <NavbarTag label={'sortuj'} />
             </Row>
-            <div style={{ marginRight: '-5%', marginLeft: '-5%' }} className="">
-              <Calendar selectedMonth={month} />
+            <SectionTitle title={'Muzyka'} />
+            <div className="grid gap-2 grid grid-cols-2">
+              <ArticleVertical />
+              <ArticleVertical />
             </div>
-          </div>
-          <div className="text-white bg-primary-blue border-2 border-black p-4 group">
-            <h3 className="py-4">TOP TEGO DNIA</h3>{' '}
-            <div className="bg-primary-blue">
-              <Row className="   space-x-2">
-                <Column className="flex-2">
-                  <p style={{ color: 'lightgrey' }}>19.11.2019</p>
-                  <p
-                    style={{
-                      fontWeight: 900,
-                      lineHeight: 1.2,
-                      fontFamily: 'helvetica',
-                      fontSize: '14px',
-                    }}
-                  >
-                    Ranking filmów Wesa Andersona od najgorszego do najlepszego
-                  </p>
-                  <div>
-                    <i
-                      style={{ fontSize: '30px' }}
-                      className={classnames('mt-1 fas fa-long-arrow-alt-right ')}
-                    />
-                  </div>
-                </Column>
-                <div
-                  style={{ backgroundImage: 'url("/foto1.png")', backgroundSize: 'cover' }}
-                  className="flex-1 border-4 border-white relative"
+            <SectionTitle title={'Artykuły'} />
+            <Article />
+            <Article />
+            <Article />
+            <SectionTitle title={'Podcasty'} />
+            <div className="grid gap-2 grid grid-cols-2">
+              <PodcastVertical />
+              <PodcastVertical />
+            </div>
+            <SectionTitle title={'Video'} />
+          </GridCol>
+          <GridCol colSpan={5}>
+            <div className="border-2 border-black mt-10 px-10">
+              <Row className="items-center space-between w-full mt-4">
+                <i
+                  onClick={() => setMonth(month - 1)}
+                  style={{ fontSize: '32px' }}
+                  className="cursor-pointer fas fa-long-arrow-alt-left"
+                ></i>
+                <p
+                  style={{ fontSize: '32px', fontFamily: 'Montserrat', fontWeight: 900 }}
+                  className="w-full text-center"
                 >
-                  <div
-                    style={{ bottom: -10, right: -10, boxShadow: '2px 2px 0 #000' }}
-                    className="absolute"
-                  >
-                    <TagLabel
-                      textStyle={{ borderColor: '#fff' }}
-                      className="flex items-center"
-                      label={'Kino'}
-                    />
-                  </div>
-                </div>
+                  {months[month - 1].name}
+                </p>
+                <i
+                  onClick={() => setMonth(month + 1)}
+                  style={{ fontSize: '32px' }}
+                  className="cursor-pointer fas fa-long-arrow-alt-right"
+                ></i>
               </Row>
+              <div style={{ marginRight: '-5%', marginLeft: '-5%' }} className="">
+                <Calendar selectedMonth={month} />
+              </div>
             </div>
-          </div>
-          <div style={{ height: '10%' }} className={'flex items-center justify-center'}>
-            MIEJSCE NA TWOJĄ REKLEMĘ
-          </div>
-        </GridCol>
-      </Grid>
+            <div className="text-white bg-primary-blue border-2 border-black p-4 group">
+              <h3 className="py-4">TOP TEGO DNIA</h3>{' '}
+              <div className="bg-primary-blue">
+                <Row className="   space-x-2">
+                  <Column className="flex-2">
+                    <p style={{ color: 'lightgrey' }}>19.11.2019</p>
+                    <p
+                      style={{
+                        fontWeight: 900,
+                        lineHeight: 1.2,
+                        fontFamily: 'helvetica',
+                        fontSize: '14px',
+                      }}
+                    >
+                      Ranking filmów Wesa Andersona od najgorszego do najlepszego
+                    </p>
+                    <div>
+                      <i
+                        style={{ fontSize: '30px' }}
+                        className={classnames('mt-1 fas fa-long-arrow-alt-right ')}
+                      />
+                    </div>
+                  </Column>
+                  <div
+                    style={{ backgroundImage: 'url("/foto1.png")', backgroundSize: 'cover' }}
+                    className="flex-1 border-4 border-white relative"
+                  >
+                    <div
+                      style={{ bottom: -10, right: -10, boxShadow: '2px 2px 0 #000' }}
+                      className="absolute"
+                    >
+                      <TagLabel
+                        textStyle={{ borderColor: '#fff' }}
+                        className="flex items-center"
+                        label={'Kino'}
+                      />
+                    </div>
+                  </div>
+                </Row>
+              </div>
+            </div>
+            <div style={{ height: '10%' }} className={'flex items-center justify-center'}>
+              MIEJSCE NA TWOJĄ REKLEMĘ
+            </div>
+          </GridCol>
+        </Grid>
+      </div>
     </main>
   );
 };
