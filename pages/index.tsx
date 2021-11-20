@@ -5,62 +5,9 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import { Column, Grid, GridCol, Row } from 'shared/ui';
 import React, { useState } from 'react';
-import { Song } from 'shared/components';
+import { ArticleListItem, Song, TagLabel } from 'shared/components';
+// @ts-ignore
 import classnames from 'classnames';
-
-function ListItem({ type }: { type?: string }) {
-  return (
-    <div>
-      <Row className="hover:bg-black border-b-2 border-b-black hover:text-white group p-4 space-x-2">
-        <Column className="flex-2">
-          <p style={{ color: 'lightgrey' }}>19.11.2019</p>
-          <p
-            style={{
-              fontWeight: 900,
-              lineHeight: 1.2,
-              fontFamily: 'helvetica',
-              fontSize: '14px',
-            }}
-          >
-            Ranking filmów Wesa Andersona od najgorszego do najlepszego
-          </p>
-          <div>
-            <i
-              style={{ fontSize: type === 'podcast' ? '20px' : '30px' }}
-              className={classnames('mt-1', {
-                'fas fa-play p-1 border-2 border-black group-hover:border-white relative':
-                  type === 'podcast',
-                'fas fa-long-arrow-alt-right ': type !== 'podcast',
-              })}
-            />
-          </div>
-        </Column>
-        <div
-          style={{ backgroundImage: 'url("/foto1.png")', backgroundSize: 'cover' }}
-          className="flex-1 border-4 border-black group-hover:border-white relative"
-        >
-          {' '}
-          <div
-            style={{ bottom: -10, right: -10, boxShadow: '2px 2px 0 #000' }}
-            className=" text-white absolute bg-primary-blue"
-          >
-            <p
-              className="uppercase px-1.5 py-px border-4 border-black group-hover:border-white"
-              style={{
-                fontWeight: 900,
-                lineHeight: 1.2,
-                fontFamily: 'Montserrat',
-                fontSize: '12px',
-              }}
-            >
-              Kino
-            </p>
-          </div>{' '}
-        </div>
-      </Row>
-    </div>
-  );
-}
 
 const Home: NextPage = () => {
   const [selectedDay, setSelectedDay] = useState(19);
@@ -104,11 +51,11 @@ const Home: NextPage = () => {
                 </p>
               </div>
               <div style={{ height: '400px' }} className="overflow-auto pb-10">
-                <ListItem />
-                <ListItem type={'podcast'} />
-                <ListItem />
-                <ListItem />
-                <ListItem />
+                <ArticleListItem />
+                <ArticleListItem type={'podcast'} />
+                <ArticleListItem />
+                <ArticleListItem />
+                <ArticleListItem />
               </div>
             </div>
             <Link href={'/kalendarium'}>
@@ -146,5 +93,70 @@ const Home: NextPage = () => {
     </div>
   );
 };
+
+function Mobile() {
+  return (
+    <Column>
+      <Row>
+        <Column>
+          <h3
+            className=" uppercase "
+            style={{ color: 'text-primary-blue', fontSize: '40px', fontWeight: 900 }}
+          >
+            Kalendarium Newonce
+          </h3>
+          <h3
+            // className=" uppercase "trzeba zmienic klasę- nie uppercase
+            style={{ fontSize: '48px', color: 'black', fontWeight: 900 }}
+          >
+            19 Listopada
+          </h3>
+        </Column>
+        <div>
+          <i
+            style={{ fontSize: '20px' }}
+            className={classnames('mt-1', {
+              'fas fa-play p-1 border-2 border-black group-hover:border-white relative':
+                'fas fa-long-arrow-alt-right ',
+            })}
+          />
+        </div>
+      </Row>
+      <button
+        style={{
+          fontSize: '14px',
+          boxShadow: '2px 2px 0 #000',
+        }}
+        className="w-full mt-6 border-4 border-black"
+      >
+        <p
+          style={{ fontFamily: 'Montserrat', fontWeight: 900 }}
+          //   kolor- whote, background color- blue
+          className="py-1 uppercase "
+        >
+          Sprawdź o czym mówiliśmy tego dnia
+        </p>
+      </button>
+      <Row>
+        <div
+          style={{ backgroundImage: 'url("/foto1.png")', backgroundSize: 'cover' }}
+          className="flex-1 border-4 border-black group-hover:border-white relative"
+        ></div>
+        <div
+          style={{ backgroundImage: 'url("/foto1.png")', backgroundSize: 'cover' }}
+          className="flex-1 border-4 border-black group-hover:border-white relative"
+        ></div>
+        <div
+          style={{ backgroundImage: 'url("/foto1.png")', backgroundSize: 'cover' }}
+          className="flex-1 border-4 border-black group-hover:border-white relative"
+        ></div>
+        <div
+          style={{ backgroundImage: 'url("/foto1.png")', backgroundSize: 'cover' }}
+          className="flex-1 border-4 border-black group-hover:border-white relative"
+        ></div>
+      </Row>
+    </Column>
+  );
+}
 
 export default Home;
